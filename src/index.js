@@ -75,6 +75,10 @@ module.exports = (
       )
     }
 
+    if (pluginOptions.rootDirectory && typeof pluginOptions.rootDirectory === 'string') {
+      updatedPath = Path.join(pluginOptions.rootDirectory, updatedPath)
+    }
+
     const publicPath = Path.join(process.cwd(), 'public', updatedPath)
 
     if (!FsExtra.existsSync(publicPath)) {
